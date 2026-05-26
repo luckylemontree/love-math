@@ -32,42 +32,42 @@
 
 
 
-    <!--========  controls area ==========-->
-    <div class="gamesArea">
-        <!--contral area-->
-        <div class="contral-area">
-            <button class="btn btn--big btn--green">
+    <!--========  games area ==========-->
+    <div class="game-area">
+        <!--control area-->
+        <div class="controls-area">
+            <button data-type="ADDITION" class="btn btn--big btn--green">
                 <i class="fas fa-plus"></i>
             </button>
-            <button class="btn btn--big btn--blue">
+            <button data-type="SUBTRACT" class="btn btn--big btn--blue">
                 <i class="fas fa-minus"></i>
             </button>
-            <button class="btn btn--big btn--yellow">
+            <button data-type="MULTIPLY"  class="btn btn--big btn--orange">
                 <i class="fas fa-times"></i>
             </button>
-            <button class="btn btn--big btn--red">
+            <button data-type="DIVISION"  class="btn btn--big btn--red">
                 <i class="fas fa-divide"></i>
             </button>
         </div>
         <!--question area-->
-        <div class="question area">
+        <div class="question-area">
             <span class="operand1">0</span>
             <span class="operator">x</span>
             <span class="operand2">0</span>
             <span> = </span>
-            <p class="answer-massege">Enter Answer</p>
+            <p class="answer-message">Enter Answer</p>
             <input id="answer-box" type="number" name="answer">
         </div>
-        <button class="btn btn--grey" type="submit">Submit Answer</buttom>
+        <button class="btn btn--gray" type="submit">Submit Answer</buttom>
 
     </div>
 
 
 
     <!--========  score area ==========-->
-    <div class="scoreArea">
+    <div class="score-area">
         <p class="scores">Correct Answer <span id="score">0</span></p>
-        <p class="scores">incorrect Answer <span id="score">0</span></p>
+        <p class="scores">incorrect Answer <span id="incorrect">0</span></p>
     </div>
 
 
