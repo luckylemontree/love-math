@@ -19,30 +19,56 @@
 </head>
 
 <!--========  body =====================-->
+
 <body>
 
 
-<!--========  header ==========-->
+    <!--========  header ==========-->
 
-<h1 class="heading">
-    <img  class="logo" src="assets/img/logo.png" alt="love maths logo">Love maths
-</h1>
-
-
-
-
-<!--========  games area ==========-->
-<div class="gamesArea">
-
-</div>
+    <h1 class="heading">
+        <img class="logo" src="assets/img/logo.png" alt="love maths logo">Love maths
+    </h1>
 
 
 
-<!--========  score area ==========-->
-<div class="scoreArea">
-<p class="scores">Correct Answer <span id="score">0</span></p>
-<p class="scores">incorrect Answer <span id="score">0</span></p>
-</div>
+
+    <!--========  controls area ==========-->
+    <div class="gamesArea">
+        <!--contral area-->
+        <div class="contral-area">
+            <button class="btn btn--big btn--green">
+                <i class="fas fa-plus"></i>
+            </button>
+            <button class="btn btn--big btn--blue">
+                <i class="fas fa-minus"></i>
+            </button>
+            <button class="btn btn--big btn--yellow">
+                <i class="fas fa-times"></i>
+            </button>
+            <button class="btn btn--big btn--red">
+                <i class="fas fa-divide"></i>
+            </button>
+        </div>
+        <!--question area-->
+        <div class="question area">
+            <span class="operand1">0</span>
+            <span class="operator">x</span>
+            <span class="operand2">0</span>
+            <span> = </span>
+            <p class="answer-massege">Enter Answer</p>
+            <input id="answer-box" type="number" name="answer">
+        </div>
+        <button class="btn btn--grey" type="submit">Submit Answer</buttom>
+
+    </div>
+
+
+
+    <!--========  score area ==========-->
+    <div class="scoreArea">
+        <p class="scores">Correct Answer <span id="score">0</span></p>
+        <p class="scores">incorrect Answer <span id="score">0</span></p>
+    </div>
 
 
 
@@ -51,6 +77,7 @@
     <!--Javascript link-->
     <script src="assets/js/script.js"></script>
 
+   
 </body>
 
 </html>
