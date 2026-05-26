@@ -31,8 +31,10 @@ function runGame(gameType) {
 
     //for addition button been clicked
     if (gameType === "addition") {
-        displayAdditonQuestion(num1, num1);
-    } else {
+        displayAdditonQuestion(num1, num2);
+    }else if (gameType === "subtract") {
+        displaySubstractQuestion(num1, num2);
+    }else {
         alert(`unkown game type:${gameType}`);
         throw ` unkown game type:${gameType}. Aborting `;
     }
@@ -46,10 +48,12 @@ function checkAnswer() {
     let calculatedAnswer = calculateCorrectAnswer();
     let isCorrect = userAnswer === calculatedAnswer[0];
 
-    if (isCorrect){
+    if (isCorrect) {
         alert("Hey,you got it right!:D");
-    }else{
+        incrementScore();
+    } else {
         alert(`Awwwwwww... you answered ${userAnswer}. The correct answer was ${calculatedAnswer[0]}!`);
+        incrementWongAnswer();
     }
 
 }
@@ -65,7 +69,10 @@ function calculateCorrectAnswer() {
     //Caculate addition
     if (operator === "+") {
         return [operand1 + operand2, "addition"];
-    } else {
+    } else if (operator === "-") {
+        return [operand1 - operand2, "ssubtract"];
+    }
+    else {
         alert(`unkown game type:${gameType}`);
         throw ` unkown game type:${gameType}. Aborting `;
     }
@@ -73,11 +80,14 @@ function calculateCorrectAnswer() {
 }
 
 function incrementScore() {
+    let oldScore = document.getElementById("score").textContent;
+    document.getElementById("score").textContent = ++oldScore;
 
 }
 
 function incrementWongAnswer() {
-
+    let oldScore = document.getElementById("incorrect").textContent;
+    document.getElementById("incorrect").textContent = --oldScore;
 }
 
 function displayAdditonQuestion(operand1, operand2) {
@@ -86,7 +96,10 @@ function displayAdditonQuestion(operand1, operand2) {
     document.getElementById("operator").textContent = "+";
 }
 
-function displaySubstractQuestion() {
+function displaySubstractQuestion(operand1, operand2) {
+    document.getElementById("operand1").textContent = operand1;
+    document.getElementById("operand2").textContent = operand2;
+    document.getElementById("operator").textContent = "-";
 
 }
 
