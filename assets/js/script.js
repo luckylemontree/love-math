@@ -47,7 +47,7 @@ function runGame(gameType) {
     } else if (gameType === "division") {
          do {
         //create two ramdon numbers between 1 and 25
-        num1 = Math.floor(Math.random() * 25) + 1;
+        num1 = Math.floor(Math.random() * 255) + 1;
         num2 = Math.floor(Math.random() * 25) + 1;
     } while (num1 % num2 !== 0);// get two numbers, The division has no remainder.
     //for addition button been clicked
