@@ -25,16 +25,28 @@ document.addEventListener("DOMContentLoaded", function () {
  * and after the user's answer has been processed
  */
 function runGame(gameType) {
-    //create two ramdon numbers between 1 and 25
-    let num1 = Math.floor(Math.random() * 25) + 1;
-    let num2 = Math.floor(Math.random() * 25) + 1;
-
-    //for addition button been clicked
+    
+        //create two ramdon numbers between 1 and 25
+       let num1 = Math.floor(Math.random() * 25) + 1;
+        let num2 = Math.floor(Math.random() * 25) + 1;
+   
     if (gameType === "addition") {
         displayAdditonQuestion(num1, num2);
-    }else if (gameType === "subtract") {
+    } else if (gameType === "subtract") {
         displaySubstractQuestion(num1, num2);
-    }else {
+    } else if (gameType === "multiply") {
+        displayMutiplyQuestion(num1, num2);
+    } else if (gameType === "division") {
+         do {
+        //create two ramdon numbers between 1 and 25
+        num1 = Math.floor(Math.random() * 25) + 1;
+        num2 = Math.floor(Math.random() * 25) + 1;
+    } while (num1 % num2 !== 0);// get two numbers, The division has no remainder.
+    //for addition button been clicked
+
+        displayDivisionQuestion(num1, num2);
+    }
+    else {
         alert(`unkown game type:${gameType}`);
         throw ` unkown game type:${gameType}. Aborting `;
     }
@@ -70,44 +82,72 @@ function calculateCorrectAnswer() {
     if (operator === "+") {
         return [operand1 + operand2, "addition"];
     } else if (operator === "-") {
-        return [operand1 - operand2, "ssubtract"];
-    }
-    else {
+        return [operand1 - operand2, "subtract"];
+    } else if (operator === "x") {
+        return [operand1 * operand2, "mutiply"];
+    } else if (operator === "/") {
+        return [operand1 / operand2, "division"];
+    } else {
         alert(`unkown game type:${gameType}`);
         throw ` unkown game type:${gameType}. Aborting `;
     }
 
 }
 
+/**
+ * Record the correct score
+ */
 function incrementScore() {
     let oldScore = document.getElementById("score").textContent;
     document.getElementById("score").textContent = ++oldScore;
 
 }
 
+/**
+ * Record the incorrect score
+ */
 function incrementWongAnswer() {
     let oldScore = document.getElementById("incorrect").textContent;
     document.getElementById("incorrect").textContent = --oldScore;
 }
 
+/**
+ *display the addition numbers and operator  
+ *
+ */
 function displayAdditonQuestion(operand1, operand2) {
     document.getElementById("operand1").textContent = operand1;
     document.getElementById("operand2").textContent = operand2;
     document.getElementById("operator").textContent = "+";
 }
 
+/**
+ *display the sub numbers and operator  
+ *
+ */
 function displaySubstractQuestion(operand1, operand2) {
     document.getElementById("operand1").textContent = operand1;
     document.getElementById("operand2").textContent = operand2;
     document.getElementById("operator").textContent = "-";
 
 }
-
-function displayMutiplyQuestion() {
-
+/**
+ *display the multi numbers and operator  
+ *
+ */
+function displayMutiplyQuestion(operand1, operand2) {
+    document.getElementById("operand1").textContent = operand1;
+    document.getElementById("operand2").textContent = operand2;
+    document.getElementById("operator").textContent = "x";
 }
 
-function displayDiviteQuestion() {
-
+/**
+ *display the divite numbera and operator  
+ *
+ */
+function displayDivisionQuestion(operand1, operand2) {
+    document.getElementById("operand1").textContent = operand1;
+    document.getElementById("operand2").textContent = operand2;
+    document.getElementById("operator").textContent = "/";
 }
 
