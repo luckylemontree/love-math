@@ -13,11 +13,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 runGame(gameType);
             }
-            //let gameType = this.getAttribute("data-type");
-            //alert(`You clicked ${gameType}!`);
-
+          
         });
     }
+
+  document.addEventListener("keydown", function (event){
+      if (event.key === "Enter"){
+        checkAnswer();
+      }
+    });
     runGame("addition");
 });
 /**
@@ -25,7 +29,11 @@ document.addEventListener("DOMContentLoaded", function () {
  * and after the user's answer has been processed
  */
 function runGame(gameType) {
-    
+    // the answer box will be empty after we submit the answer
+       document.getElementById("answer-box").value = "";
+       // set the answer box to be entered directly without click
+       document.getElementById("answer-box").focus();
+
         //create two ramdon numbers between 1 and 25
        let num1 = Math.floor(Math.random() * 25) + 1;
         let num2 = Math.floor(Math.random() * 25) + 1;
@@ -67,7 +75,7 @@ function checkAnswer() {
         alert(`Awwwwwww... you answered ${userAnswer}. The correct answer was ${calculatedAnswer[0]}!`);
         incrementWongAnswer();
     }
-
+    runGame(calculatedAnswer[1]);
 }
 /**
  * Gets the operands(the numbers) and the operator(plus,minus etc.)
@@ -81,10 +89,13 @@ function calculateCorrectAnswer() {
     //Caculate addition
     if (operator === "+") {
         return [operand1 + operand2, "addition"];
+        //Caculate subtract
     } else if (operator === "-") {
         return [operand1 - operand2, "subtract"];
+        //Caculate mutiply
     } else if (operator === "x") {
         return [operand1 * operand2, "mutiply"];
+        //Caculate division
     } else if (operator === "/") {
         return [operand1 / operand2, "division"];
     } else {
@@ -126,8 +137,8 @@ function displayAdditonQuestion(operand1, operand2) {
  *
  */
 function displaySubstractQuestion(operand1, operand2) {
-    document.getElementById("operand1").textContent = operand1;
-    document.getElementById("operand2").textContent = operand2;
+    document.getElementById("operand1").textContent = operand1>operand2 ? operand1:operand2;
+    document.getElementById("operand2").textContent = operand1>operand2 ? operand2:operand1;
     document.getElementById("operator").textContent = "-";
 
 }
